@@ -1,5 +1,5 @@
 function PokemonCard() {
-  const pokemon = pokemonList[0];
+  const pokemon = pokemonList[1];
 
   if (pokemon.imgSrc != null) {
     return (
@@ -9,7 +9,12 @@ function PokemonCard() {
       </figure>
     );
   } else {
-    return <p>???</p>;
+    return (
+      <figure>
+        <p>???</p>
+        <figcaption>{pokemon.name}</figcaption>
+      </figure>
+    );
   }
 }
 
