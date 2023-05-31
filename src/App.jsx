@@ -15,6 +15,13 @@ const pokemonList = [
   },
 ];
 
+PokemonCard.propTypes = {
+  pokemonList: PropTypes.arrayof({
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 function App() {
   // const [count, setCount] = useState(0);
 
