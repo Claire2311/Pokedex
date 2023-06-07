@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
@@ -37,6 +37,10 @@ function App() {
     setPokemonName(e.target.value);
   };
 
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);
+
   return (
     <div>
       <NavBar pokemonList={pokemonList} onClick={handleOnClick} />
@@ -48,8 +52,6 @@ function App() {
               key={pokemon.name}
               name={pokemon.name}
               imgSrc={pokemon.imgSrc}
-              // name={pokemonList[pokemonIndex].name}
-              // imgSrc={pokemonList[pokemonIndex].imgSrc}
             />
           ))}
       </div>
