@@ -1,28 +1,13 @@
 import { useState } from "react";
 
-const NavBar = ({ pokemonList, pokemonIndex, setPokemonIndex }) => {
-  const increment = () => {
-    if (pokemonIndex - 1 < 0) {
-      setPokemonIndex(0);
-    } else {
-      setPokemonIndex(pokemonIndex - 1);
-    }
-  };
-
-  const decrement = () => {
-    if (pokemonIndex + 1 > pokemonList.length - 1) {
-      setPokemonIndex(pokemonList.length - 1);
-    } else {
-      setPokemonIndex(pokemonIndex + 1);
-    }
-  };
-
-  // const [but, setBut] = useState(pokemonList);
-
+const NavBar = ({ pokemonList, onClick }) => {
   return (
     <div>
-      <button onClick={increment}>Précédent</button>
-      <button onClick={decrement}>Suivant</button>
+      {pokemonList.map((pokemon) => (
+        <button key={pokemon.name} value={pokemon.name} onClick={onClick}>
+          {pokemon.name}
+        </button>
+      ))}
     </div>
   );
 };

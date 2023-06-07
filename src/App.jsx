@@ -31,18 +31,27 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [pokemonName, setPokemonName] = useState(0);
+
+  const handleOnClick = (e) => {
+    setPokemonName(e.target.value);
+  };
+
   return (
     <div>
-      <NavBar
-        pokemonList={pokemonList}
-        pokemonIndex={pokemonIndex}
-        setPokemonIndex={setPokemonIndex}
-      />
+      <NavBar pokemonList={pokemonList} onClick={handleOnClick} />
       <div>
-        <PokemonCard
-          name={pokemonList[pokemonIndex].name}
-          imgSrc={pokemonList[pokemonIndex].imgSrc}
-        />
+        {pokemonList
+          .filter((elem) => elem.name === pokemonName)
+          .map((pokemon) => (
+            <PokemonCard
+              key={pokemon.name}
+              name={pokemon.name}
+              imgSrc={pokemon.imgSrc}
+              // name={pokemonList[pokemonIndex].name}
+              // imgSrc={pokemonList[pokemonIndex].imgSrc}
+            />
+          ))}
       </div>
     </div>
   );
